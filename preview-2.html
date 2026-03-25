@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview 2 | Western Technology</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Added Playfair Display for the "Fancy Serif" Logo -->
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Inter:wght@400;700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pitch-dark: #05140b;
+            --neon-lime: #baff39;
+        }
+
+        /* Global 10% Scaling */
+        html {
+            zoom: 0.9;
+            -moz-transform: scale(0.9);
+            -moz-transform-origin: 0 0;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--pitch-dark); 
+            color: white;
+            scroll-behavior: smooth; 
+            margin: 0;
+            padding: 0;
+        }
+
+        .sport-title { font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-style: italic; text-transform: uppercase; line-height: 0.9; }
+        
+        /* Fancy Glowing Serif Font */
+        .fancy-logo { 
+            font-family: 'Inter', serif; 
+            font-style: italic;
+            text-shadow: 0 0 15px rgba(186, 255, 57, 0.8);
+        }
+
+        /* Navbar Glow */
+        .nav-glow {
+            box-shadow: 0 10px 30px rgba(186, 255, 57, 0.25);
+            border-bottom: 2px solid rgba(186, 255, 57, 0.4);
+        }
+
+        /* Hero section corrected for zoom 0.9 */
+        .hero-bg {
+            background: linear-gradient(rgba(5, 20, 11, 0.5), rgba(5, 20, 11, 0.7)), url('https://t3.ftcdn.net/jpg/00/85/78/10/360_F_85781068_MwcreyRycIzpDLVtm311btoFYikWURph.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 111.11vh; 
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Comparison Slider */
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 480px; 
+            border-radius: 4px;
+            overflow: hidden;
+            border: 4px solid var(--neon-lime);
+        }
+        .ba-image {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .after-image {
+            clip-path: inset(0 0 0 50%);
+        }
+        .ba-handle {
+            position: absolute;
+            top: 0; bottom: 0; left: 50%;
+            width: 6px; background: var(--neon-lime);
+            z-index: 30; cursor: ew-resize;
+            box-shadow: 0 0 30px rgba(186, 255, 57, 0.8);
+        }
+
+        .glow-green {
+            box-shadow: 0 0 25px rgba(186, 255, 57, 0.12);
+        }
+        
+        /* Stadium Stripe Pattern */
+        .turf-stripes {
+            background: repeating-linear-gradient(
+                90deg,
+                #05140b,
+                #05140b 120px,
+                #071d0f 120px,
+                #071d0f 240px
+            );
+        }
+
+        /* Transparent Watermark Numbers */
+        .card-number {
+            position: absolute;
+            right: -10px;
+            bottom: -20px;
+            font-size: 140px;
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.04);
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 30s linear infinite;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Nav Bar -->
+    <nav class="fixed top-0 w-full z-50 bg-black/95 backdrop-blur-md nav-glow py-2 px-8">
+        <div class="max-w-7xl mx-auto flex justify-between items-center h-16">
+            <!-- FANCY SERIF LOGO TEXT -->
+            <div class="fancy-logo text-3xl text-lime-400 tracking-tight">
+                Lawn and Tree Services
+            </div>
+            
+            <div class="hidden md:flex space-x-10 text-[11px] font-black uppercase tracking-[0.3em] text-gray-400">
+                <a href="#results" class="hover:text-lime-400 transition">Transformation</a>
+                <a href="#reviews" class="hover:text-lime-400 transition">Reviews</a>
+                <a href="#pricing" class="hover:text-lime-400 transition">Pricing</a>
+            </div>
+            <a href="tel:11239070024" class="bg-lime-400 text-black font-black px-6 py-2 italic text-sm skew-x-[-12deg] hover:brightness-110 transition">
+                (123) 907-0024
+            </a>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HERO -->
+    <section class="relative hero-bg px-6 overflow-hidden">
+        <div class="max-w-4xl w-full text-center z-10 pt-10">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <span class="text-lime-400 font-black text-xl">★★★★★</span>
+                <span class="text-white/60 font-bold uppercase tracking-widest text-xs">4.9 STARS (168 REVIEWS)</span>
+            </div>
+            <h1 class="sport-title text-[70px] md:text-[85px] mb-6 leading-tight">
+                PRECISION <br><span class="text-transparent" style="-webkit-text-stroke: 2px #fff;">PERFORMANCE.</span>
+            </h1>
+            <p class="text-gray-200 text-lg font-medium max-w-lg mx-auto mb-10 italic opacity-90">Providing a stadium-grade finish through expert mowing, tree sculpting, and structural property maintenance.</p>
+            <div class="flex justify-center">
+                <a href="tel:11239070024" class="bg-white text-black sport-title text-2xl px-12 py-5 italic skew-x-[-10deg] hover:bg-lime-400 transition transform shadow-2xl">
+                    REQUEST AN ESTIMATE
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEW TICKER (MARQUEE) -->
+    <div class="bg-lime-400 py-2 border-y border-white/20 overflow-hidden whitespace-nowrap">
+        <div class="animate-marquee sport-title text-2xl text-black">
+            "[] DID A WONDERFUL JOB" • "NEXT DAY SERVICE" • "PHENOMENAL JOB WITH OUR YARD" • "HIGHLY RECOMMEND" • "REASONABLE PRICE" • "[]] IS PHENOMENAL" • "LAWN HASN'T LOOKED THIS GOOD" • 
+            "[] DID A WONDERFUL JOB" • "NEXT DAY SERVICE" • "PHENOMENAL JOB WITH OUR YARD" • "HIGHLY RECOMMEND" • "REASONABLE PRICE" • "[]] IS PHENOMENAL" • "LAWN HASN'T LOOKED THIS GOOD" • 
+        </div>
+    </div>
+
+    <!-- SECTION 2: TRANSFORMATION (Striped Background) -->
+    <section id="results" class="py-24 px-6 turf-stripes border-b border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex justify-between items-end pb-2 px-1">
+                <div class="sport-title text-2xl opacity-50 tracking-tighter">BEFORE</div>
+                <div class="sport-title text-2xl text-lime-400 tracking-tighter uppercase">LAWN AND TREE SERVICES</div>
+            </div>
+
+            <div class="slider-wrapper" id="comparisonSlider">
+                <img src="before.png" class="ba-image before-image" alt="Before">
+                <img src="after.png" class="ba-image after-image" id="revealedImage" alt="Result">
+                
+                <div class="ba-handle" id="sliderLine">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black border-4 border-lime-400 w-12 h-12 rounded-full flex items-center justify-center font-black italic text-xs">VS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: THE GAME PLAN (Solid Background with Numbering) -->
+    <section id="services" class="py-32 px-6 bg-black">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="bg-zinc-900/60 border-2 border-white/10 p-10 glow-green relative overflow-hidden group">
+                <div class="card-number">1</div>
+                <p class="text-lime-400 font-bold mb-4 italic tracking-widest text-xs uppercase relative z-10">Premium Care</p>
+                <h3 class="sport-title text-4xl mb-6 relative z-10">MOWING & EDGING</h3>
+                <p class="text-xs text-gray-400 leading-relaxed font-bold uppercase italic relative z-10">High-intensity lawn maintenance with razor-sharp edging and thorough clearance.</p>
+            </div>
+            <div class="bg-zinc-900/60 border-2 border-white/10 p-10 glow-green relative overflow-hidden group">
+                <div class="card-number">2</div>
+                <p class="text-lime-400 font-bold mb-4 italic tracking-widest text-xs uppercase relative z-10">Arborist Class</p>
+                <h3 class="sport-title text-4xl mb-6 relative z-10">TREE TRIMMING</h3>
+                <p class="text-xs text-gray-400 leading-relaxed font-bold uppercase italic relative z-10">Expert sculpting and structural pruning for trees and overgrown shrubs.</p>
+            </div>
+            <div class="bg-zinc-900/60 border-2 border-white/10 p-10 glow-green relative overflow-hidden group">
+                <div class="card-number">3</div>
+                <p class="text-lime-400 font-bold mb-4 italic tracking-widest text-xs uppercase relative z-10">Structural</p>
+                <h3 class="sport-title text-4xl mb-6 relative z-10">FENCE INSTALL</h3>
+                <p class="text-xs text-gray-400 leading-relaxed font-bold uppercase italic relative z-10">Professional backyard fence installation and repair at a reasonable price point.</p>
+            </div>
+            <div class="bg-zinc-900/60 border-2 border-white/10 p-10 glow-green relative overflow-hidden group">
+                <div class="card-number">4</div>
+                <p class="text-lime-400 font-bold mb-4 italic tracking-widest text-xs uppercase relative z-10">Aesthetic</p>
+                <h3 class="sport-title text-4xl mb-6 relative z-10">HOLIDAY LIGHTS</h3>
+                <p class="text-xs text-gray-400 leading-relaxed font-bold uppercase italic relative z-10">Custom seasonal and Christmas lighting installations for a premium home display.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENT REVIEWS SECTION -->
+    <section id="reviews" class="py-24 px-6 bg-zinc-950 border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="sport-title text-6xl mb-12 italic text-center">CLIENT <span class="text-lime-400">SCOREBOARD</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-black border border-white/10 p-8 glow-green italic">
+                    <p class="text-lime-400 font-black mb-2 text-sm uppercase">★★★★★</p>
+                    <p class="text-gray-400 text-sm mb-6">"[]] did a wonderful job trimming our overgrown bushes and cutting the grass. He is very knowledgeable and patient."</p>
+                    <p class="sport-title text-xl text-white">— Tyra B.</p>
+                </div>
+                <div class="bg-black border border-white/10 p-8 glow-green italic">
+                    <p class="text-lime-400 font-black mb-2 text-sm uppercase">★★★★★</p>
+                    <p class="text-gray-400 text-sm mb-6">"[] did a phenomenal job with our yard! He was prompt, professional, and very responsive. I definitely recommend!"</p>
+                    <p class="sport-title text-xl text-white">— Felisha T.</p>
+                </div>
+                <div class="bg-black border border-white/10 p-8 glow-green italic">
+                    <p class="text-lime-400 font-black mb-2 text-sm uppercase">★★★★★</p>
+                    <p class="text-gray-400 text-sm mb-6">"Our lawn hasn't looked this good since we moved in! Thank you for making our lawn look great!"</p>
+                    <p class="sport-title text-xl text-white">— Aaron Zimmerman</p>
+                </div>
+                <div class="bg-black border border-white/10 p-8 glow-green italic">
+                    <p class="text-lime-400 font-black mb-2 text-sm uppercase">★★★★★</p>
+                    <p class="text-gray-400 text-sm mb-6">"[] decorated my yard for Christmas. It hasn't been decorated in years. The little ones are excited and happy."</p>
+                    <p class="sport-title text-xl text-white">— Naomi N.</p>
+                </div>
+                <div class="bg-black border border-white/10 p-8 glow-green italic">
+                    <p class="text-lime-400 font-black mb-2 text-sm uppercase">★★★★★</p>
+                    <p class="text-gray-400 text-sm mb-6">"He even picked up leaves without me asking. I didn't even have to be home for his professional service."</p>
+                    <p class="sport-title text-xl text-white">— Quinettra S.</p>
+                </div>
+                <div class="bg-black border border-white/10 p-8 glow-green italic">
+                    <p class="text-lime-400 font-black mb-2 text-sm uppercase">★★★★★</p>
+                    <p class="text-gray-400 text-sm mb-6">"Hired Kelvin for multiple services including a backyard fence and we were very pleased. Reasonable price."</p>
+                    <p class="sport-title text-xl text-white">— McKenzie R.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: PRICING (Striped Background) -->
+    <section id="pricing" class="py-24 turf-stripes px-6 border-t border-white/10">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-0">
+                <div class="border-2 border-gray-800 p-12 text-center bg-zinc-950/80 glow-green">
+                    <h4 class="sport-title text-3xl mb-4 italic text-gray-400 uppercase">The Scout</h4>
+                    <p class="text-[10px] text-lime-400 font-bold mb-6 italic">(< 0.25 ACRES)</p>
+                    <div class="sport-title text-7xl text-white mb-8">$45+</div>
+                    <ul class="text-[11px] font-black uppercase tracking-widest text-gray-400 space-y-4 py-8 border-t border-white/5">
+                        <li>Standard Mowing</li>
+                        <li>Sidewalk Perimeter Trim</li>
+                        <li>Hard Surface Clearing</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-lime-400 text-black p-14 text-center relative z-10 transform scale-110 border-4 border-white shadow-[0_30px_60px_rgba(186,255,57,0.4)]">
+                    <h4 class="sport-title text-5xl mb-4 italic uppercase">The Pro</h4>
+                    <p class="text-[11px] text-black/60 font-black mb-8 italic uppercase">(0.25 - 0.75 ACRES)</p>
+                    <div class="sport-title text-[90px] mb-8 leading-none">$75+</div>
+                    <ul class="text-[12px] font-black uppercase tracking-widest text-black/80 space-y-5 border-y border-black/10 py-10 w-full mb-10 italic">
+                        <li>Expert Tree Trimming</li>
+                        <li>Full Property Maintenance</li>
+                        <li>Flower Bed Detail</li>
+                    </ul>
+                    <a href="tel:11239070024" class="block bg-black text-white px-8 py-5 italic sport-title text-3xl skew-x-[-12deg] w-full hover:brightness-125 transition">CALL NOW</a>
+                </div>
+
+                <div class="border-2 border-gray-800 p-12 text-center bg-zinc-950/80 glow-green">
+                    <h4 class="sport-title text-3xl mb-4 italic text-gray-400 uppercase">The All-Star</h4>
+                    <p class="text-[10px] text-lime-400 font-bold mb-6 italic">(0.75+ ACRES)</p>
+                    <div class="sport-title text-7xl text-white mb-8 italic">QUOTE</div>
+                    <ul class="text-[11px] font-black uppercase tracking-widest text-gray-400 space-y-4 py-8 border-t border-white/5 italic">
+                        <li>Fence Installation</li>
+                        <li>Holiday Light Custom</li>
+                        <li>Estate Management</li>
+                    </ul>
+                    <a href="tel:11239070024" class="mt-4 block font-black text-xs text-lime-400 underline uppercase italic">Call for Custom Score</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-24 px-8 border-t-[12px] border-lime-400">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-12 md:mb-0">
+                <h2 class="sport-title text-[80px] text-white leading-tight">SCORE <br>YOUR <span class="text-lime-400 underline">LOOK.</span></h2>
+                <div class="mt-6">
+                    <img src="logo.png" alt=" Logo" class="max-w-[200px] h-auto">
+                </div>
+            </div>
+
+            <div class="w-full max-w-lg bg-zinc-900/60 p-10 border-2 border-white/5 glow-green skew-x-[-3deg]">
+                <h4 class="sport-title text-2xl text-lime-400 italic mb-6 uppercase">DIRECT CONTACT QUOTELINE</h4>
+                <div class="space-y-4 text-white font-black italic text-4xl">
+                   <a href="tel:11239070024" class="hover:text-lime-400 transition tracking-tighter block">(123) 907-0024</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-32 text-gray-800 text-[9px] font-black tracking-[0.8em] uppercase">
+            &copy; 2026 WESTERN TECHNOLOGY | westerntechnology.com 
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SLIDER JS -->
+    <script>
+        const sliderContainer = document.getElementById('comparisonSlider');
+        const revealImg = document.getElementById('revealedImage');
+        const sliderLine = document.getElementById('sliderLine');
+
+        function move(e) {
+            const rect = sliderContainer.getBoundingClientRect();
+            let xPos = (e.pageX || (e.touches ? e.touches[0].pageX : 0));
+            let relativePosition = (xPos - rect.left) / rect.width;
+            
+            if (relativePosition < 0) relativePosition = 0;
+            if (relativePosition > 1) relativePosition = 1;
+
+            revealImg.style.clipPath = `inset(0 0 0 ${relativePosition * 100}%)`;
+            sliderLine.style.left = `${relativePosition * 100}%`;
+        }
+
+        sliderContainer.addEventListener('mousemove', move);
+        sliderContainer.addEventListener('touchmove', move);
+    </script>
+
+</body>
+</html>

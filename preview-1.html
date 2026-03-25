@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview 1 | Western Technology</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: white; scroll-behavior: smooth; }
+        
+        /* Stadium Stripe Pattern */
+        .lawn-stripes {
+            background: repeating-linear-gradient(
+                90deg,
+                #0a1a0a,
+                #0a1a0a 100px,
+                #0d220d 100px,
+                #0d220d 200px
+            );
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 20px rgba(234, 179, 8, 0.5);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://t3.ftcdn.net/jpg/00/85/78/10/360_F_85781068_MwcreyRycIzpDLVtm311btoFYikWURph.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        /* Modal Animation */
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+            display: none;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Phone Popup Modal -->
+    <div id="phoneModal" class="modal-overlay fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm items-center justify-center p-6">
+        <div class="bg-zinc-900 border-2 border-yellow-500 p-8 rounded-2xl max-w-sm w-full relative text-center gold-glow">
+            <button onclick="closePhoneModal()" class="absolute top-4 right-4 text-gray-500 hover:text-yellow-500 text-2xl font-bold">&times;</button>
+            <p class="text-yellow-500 font-black uppercase tracking-widest text-xs mb-4 italic">Direct Line to Ricky</p>
+            <h3 class="text-3xl font-black mb-6 text-white tracking-tighter">CALL (123) 498-6490</h3>
+            <div class="flex flex-col gap-3">
+                <a href="tel:1234986490" class="bg-yellow-500 text-black font-black py-3 rounded-sm hover:bg-yellow-400 transition uppercase">Start Call Now</a>
+                <button onclick="closePhoneModal()" class="border border-zinc-700 text-gray-400 py-2 rounded-sm hover:text-white transition text-sm uppercase font-bold">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-yellow-500/20 py-4 px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-black tracking-tighter text-yellow-500 italic">RICKY LAWN CARE</div>
+            
+            <!-- Menu Items -->
+            <div class="hidden md:flex space-x-8 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">
+                <a href="#pricing" class="hover:text-yellow-500 transition">Pricing</a>
+                <a href="#coverage" class="hover:text-yellow-500 transition">Service Coverage</a>
+                <a href="#contact" class="hover:text-yellow-500 transition">Contact</a>
+            </div>
+
+            <!-- Phone Number CTA -->
+            <button onclick="openPhoneModal()" class="bg-yellow-500 hover:bg-yellow-400 text-black px-5 py-2 rounded-sm font-black text-sm transition duration-300">
+                (123) 498-6490
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient h-screen flex items-center justify-center text-center px-4 pt-16">
+        <div class="max-w-4xl">
+            <span class="text-yellow-500 font-bold tracking-[0.3em] uppercase mb-4 block">Elite Maintenance</span>
+            <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight uppercase">PRECISION <br> <span class="text-yellow-500 italic">PERFORMANCE.</span></h1>
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto italic font-light">Precision cuts, professional edging, and a stadium-ready finish for Garland, Mesquite, & Rockwall.</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#pricing" class="px-10 py-4 bg-yellow-500 text-black font-black text-lg rounded-sm hover:scale-105 transition">VIEW PRICING</a>
+                <button onclick="openPhoneModal()" class="px-10 py-4 border border-white text-white font-bold text-lg rounded-sm hover:bg-white hover:text-black transition uppercase">Call Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Bar -->
+    <section class="bg-yellow-500 py-4 border-y border-yellow-400">
+        <div class="overflow-hidden whitespace-nowrap">
+            <div class="inline-block animate-marquee uppercase font-black text-black text-lg tracking-widest">
+                MOWING &bull; TRIMMING &bull; EDGING &bull; BLOWING &bull; WEEKLY DISCOUNTS &bull; MOWING &bull; TRIMMING &bull; EDGING &bull; BLOWING &bull; WEEKLY DISCOUNTS
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 px-6 lawn-stripes">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black mb-4 uppercase italic">THE PLAYBOOK</h2>
+                <p class="text-yellow-500 font-bold uppercase tracking-widest italic text-sm">Transparent Estimates</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Small Card -->
+                <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-2xl gold-glow hover:border-yellow-500 transition relative overflow-hidden group">
+                    <div class="absolute -right-4 -top-4 text-zinc-800 text-9xl font-black group-hover:text-yellow-500/10 transition">S</div>
+                    <h3 class="text-2xl font-black mb-2 uppercase italic text-yellow-500">TREE TRIMMING</h3>
+                    <div class="text-5xl font-black mb-8">TREE TRIMMING </div>
+                    <ul class="space-y-3 mb-10 text-gray-300">
+                        <li class="flex items-center">&bull; Precision Mow</li>
+                        <li class="flex items-center">&bull; String Trimming</li>
+                        <li class="flex items-center">&bull; Pro Sidewalk Edging</li>
+                        <li class="flex items-center">&bull; Power Blowing</li>
+                    </ul>
+                    <button onclick="openPhoneModal()" class="w-full block text-center bg-white text-black font-bold py-3 rounded-sm group-hover:bg-yellow-500 transition uppercase">Secure Quote</button>
+                </div>
+
+                <!-- Medium Card (Highlighted) -->
+                <div class="bg-yellow-500 border-2 border-yellow-400 p-8 rounded-2xl transform md:scale-105 shadow-2xl relative overflow-hidden">
+                    <div class="bg-black text-white text-[10px] font-black uppercase py-1 px-4 rounded absolute top-4 right-4 tracking-tighter">MOST POPULAR</div>
+                    <h3 class="text-2xl font-black mb-2 uppercase italic text-black">Medium Yards</h3>
+                    <p class="text-yellow-950 mb-6">1/4 - 3/4 Acre</p>
+                    <div class="text-5xl font-black mb-8 text-black">$55-75 <span class="text-sm font-normal italic opacity-60">/ visit</span></div>
+                    <ul class="space-y-3 mb-10 text-black font-medium">
+                        <li class="flex items-center font-bold">✓ High-Precision Mow</li>
+                        <li class="flex items-center">✓ Detail Trimming</li>
+                        <li class="flex items-center">✓ Vertical Blade Edging</li>
+                        <li class="flex items-center">✓ Full Surface Clearing</li>
+                    </ul>
+                    <button onclick="openPhoneModal()" class="w-full block text-center bg-black text-yellow-500 font-black py-3 rounded-sm uppercase">Secure Quote</button>
+                </div>
+
+                <!-- Large Card -->
+                <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-2xl gold-glow hover:border-yellow-500 transition relative overflow-hidden group text-right">
+                    <div class="absolute -left-4 -top-4 text-zinc-800 text-9xl font-black group-hover:text-yellow-500/10 transition">L</div>
+                    <h3 class="text-2xl font-black mb-2 uppercase italic text-yellow-500">Large Yards</h3>
+                    <p class="text-gray-400 mb-6">3/4 - 1 Acre</p>
+                    <div class="text-5xl font-black mb-8">$75-110 <span class="text-sm font-normal text-gray-500 italic">/ visit</span></div>
+                    <ul class="space-y-3 mb-10 text-gray-300">
+                        <li>Masterful Cutting Pattern &bull;</li>
+                        <li>Intensive Edging &bull;</li>
+                        <li>Property Cleanup &bull;</li>
+                        <li>Heavy Clipping Removal &bull;</li>
+                    </ul>
+                    <button onclick="openPhoneModal()" class="w-full block text-center bg-white text-black font-bold py-3 rounded-sm group-hover:bg-yellow-500 transition uppercase">Secure Quote</button>
+                </div>
+            </div>
+
+            <!-- New Standout Text Block -->
+            <div class="mt-16 flex justify-center">
+                <div class="bg-zinc-900/80 border border-yellow-500/30 px-8 py-3 rounded-full inline-block backdrop-blur-sm">
+                    <p class="text-gray-300 text-sm font-bold tracking-tight">
+                        No yard is too big or small: <span class="text-yellow-500 italic">we service properties 5+ acres too</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage Section -->
+    <section id="coverage" class="py-24 bg-black px-6">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-4xl font-black mb-6 uppercase italic leading-tight text-yellow-500">Service Coverage</h2>
+                <p class="text-gray-400 mb-8 leading-relaxed text-lg font-light">Operating out of the heart of North Texas. We aren't just cutting grass; we are improving curb appeal in our local neighborhoods.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-4 py-1 border border-zinc-800 rounded bg-zinc-900 font-bold uppercase text-xs tracking-wider">GARLAND</span>
+                    <span class="px-4 py-1 border border-zinc-800 rounded bg-zinc-900 font-bold uppercase text-xs tracking-wider">MESQUITE</span>
+                    <span class="px-4 py-1 border border-zinc-800 rounded bg-zinc-900 font-bold uppercase text-xs tracking-wider">ROCKWALL</span>
+                </div>
+            </div>
+            
+            <div class="bg-zinc-900 p-8 rounded-sm border border-zinc-800 shadow-2xl relative">
+                <div class="absolute top-0 right-0 p-2"><div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div></div>
+                <h4 class="font-black text-xl mb-6 text-yellow-500 uppercase italic">Frequency Discounts</h4>
+                <div class="space-y-6">
+                    <div class="flex justify-between items-center p-4 border-b border-zinc-800">
+                        <div>
+                            <span class="block font-black uppercase text-sm">Weekly Service</span>
+                            <span class="text-[10px] text-green-500 font-bold uppercase tracking-widest">Champion Rate</span>
+                        </div>
+                        <span class="bg-yellow-500 text-black font-bold px-2 py-1 text-[10px] rounded-sm">BEST PRICE</span>
+                    </div>
+                    <div class="flex justify-between items-center p-4 border-b border-zinc-800 opacity-60">
+                        <div>
+                            <span class="block font-black uppercase text-sm">Bi-Weekly</span>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-tighter italic">Slightly Higher</span>
+                    </div>
+                    <div class="flex justify-between items-center p-4">
+                        <div>
+                            <span class="block font-black uppercase text-sm">One-Time Cut</span>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-tighter opacity-50 italic">Overgrowth Rate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GAME STYLE FOOTER (Scoreboard Design) -->
+    <footer id="contact" class="bg-zinc-900 border-t-4 border-yellow-500">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+            <!-- Scoreboard Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <div class="bg-black p-6 border-l-2 border-yellow-500">
+                    <p class="text-gray-500 text-[10px] uppercase font-black tracking-widest mb-1">Lead</p>
+                    <p class="text-xl font-black italic uppercase text-white">Ricky</p>
+                </div>
+                <div class="bg-black p-6 border-l-2 border-yellow-500">
+                    <p class="text-gray-500 text-[10px] uppercase font-black tracking-widest mb-1">Home Turf</p>
+                    <p class="text-xl font-black italic uppercase text-white">Hodges, SC</p>
+                </div>
+                <div class="bg-black p-6 border-l-2 border-yellow-500">
+                    <p class="text-gray-500 text-[10px] uppercase font-black tracking-widest mb-1">Team Status</p>
+                    <p class="text-xl font-black italic uppercase text-green-500">Now Booking</p>
+                </div>
+                <div class="bg-black p-6 border-l-2 border-yellow-500">
+                    <p class="text-gray-500 text-[10px] uppercase font-black tracking-widest mb-1">Social Feed</p>
+                    <a href="https://www.facebook.com/marketplace/" class="text-xl font-black italic uppercase text-blue-400 hover:text-white transition">Facebook</a>
+                </div>
+            </div>
+
+            <!-- Big Contact Finish -->
+            <div class="text-center md:text-left flex flex-col md:flex-row justify-between items-center border-t border-zinc-800 pt-12">
+                <div>
+                    <h2 class="text-yellow-500 text-6xl md:text-8xl font-black tracking-tighter italic mb-2 leading-none">RICKY <br>LAWN CARE</h2>
+                    <p class="text-gray-500 font-bold uppercase tracking-[0.5em] text-sm">Professional Lawncare Solutions</p>
+                </div>
+                <div class="mt-8 md:mt-0 text-center md:text-right">
+                    <p class="text-gray-400 font-black uppercase text-xs mb-2">Instant Quote Line</p>
+                    <button onclick="openPhoneModal()" class="text-3xl md:text-5xl font-black text-white hover:text-yellow-500 transition tracking-tighter">(123) 498-6490</button>
+                </div>
+            </div>
+            
+            <div class="mt-40 text-center text-zinc-600 text-[10px] font-bold uppercase tracking-widest">
+                &copy; No yard is too big or small.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openPhoneModal() {
+            document.getElementById('phoneModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closePhoneModal() {
+            document.getElementById('phoneModal').classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+        // Close modal if clicking outside the box
+        window.onclick = function(event) {
+            let modal = document.getElementById('phoneModal');
+            if (event.target == modal) {
+                closePhoneModal();
+            }
+        }
+    </script>
+
+</body>
+</html>
